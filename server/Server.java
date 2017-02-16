@@ -34,7 +34,6 @@ private static Socket socket;
                 
             while(true)
             {
-
                 //Reading the message from the client
                 String client_message = br.readLine();
                 System.out.println("Message received from client is "+ client_message);
