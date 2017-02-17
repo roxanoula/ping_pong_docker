@@ -38,11 +38,14 @@ public static void main(String args[])
         while (serverMessage.equals("PONG"))
         {
            bw.write(clientMessage + "\n");
+           try {
+           	Thread.sleep(3000);
+           } catch(InterruptedException ex) { Thread.currentThread().interrupt();}
+
            bw.flush();
            System.out.println("Message sent to the server : "+ clientMessage);
 
            //Get the return message from the server
-
            serverMessage = br.readLine();
            System.out.println("Message received from the server : " + serverMessage);
         }

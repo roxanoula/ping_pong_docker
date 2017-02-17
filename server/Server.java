@@ -44,10 +44,14 @@ private static Socket socket;
                 String sendreturnMessage = returnMessage + "\n";
 		//Sending the response back to the client.
 
+                try {
+ 		   Thread.sleep(5000);
+		} catch(InterruptedException ex) { Thread.currentThread().interrupt();}
+
                 bw.write(sendreturnMessage);
                 bw.flush();
                 System.out.println("Message sent to the client is "+returnMessage);
-		System.out.println("\nProcess Complete\n");
+		System.out.println("\nThe game continues \n");
                 counter++;
             }
         }
