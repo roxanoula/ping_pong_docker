@@ -27,21 +27,22 @@ public static void main(String args[])
         OutputStream os = socket.getOutputStream();
         OutputStreamWriter osw = new OutputStreamWriter(os);
         BufferedWriter bw = new BufferedWriter(osw);
+       
+        InputStream is = socket.getInputStream();
+        InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader br = new BufferedReader(isr);
 
         String clientMessage = "PING";
         String serverMessage = "PONG";
 
-        InputStream is = socket.getInputStream();
-        InputStreamReader isr = new InputStreamReader(is);
-        BufferedReader br = new BufferedReader(isr);
-                
         while (serverMessage.equals("PONG"))
         {
-           bw.write(clientMessage);
+           bw.write(clientMessage + "\n");
            bw.flush();
            System.out.println("Message sent to the server : "+ clientMessage);
 
            //Get the return message from the server
+
            serverMessage = br.readLine();
            System.out.println("Message received from the server : " + serverMessage);
         }
