@@ -1,0 +1,4 @@
+#START a bash terminal on the docker 
+docker exec -it <container> bash
+
+
