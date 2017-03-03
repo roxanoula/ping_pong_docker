@@ -1,0 +1,4 @@
+FROM ubuntu:12.04
+COPY allDockers.sh /
+RUN echo $pwd
+RUN ./allDockers.sh
